@@ -55,7 +55,13 @@ endif()
 target_include_directories(${PROJECT_NAME} INTERFACE
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>)
-target_link_libraries(${PROJECT_NAME} INTERFACE glm::glm)
+# target_link_libraries(${PROJECT_NAME} INTERFACE glm::glm)
+
+# if(NOT MSVC)
+# target_precompile_headers(${PROJECT_NAME} INTERFACE
+#     $<$<COMPILE_LANGUAGE:CXX>:$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/par.h>>
+#     $<$<COMPILE_LANGUAGE:CXX>:$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/public.h>>)
+# endif()
 
 if(MANIFOLD_EXCEPTIONS)
     target_compile_options(${PROJECT_NAME} INTERFACE

@@ -47,7 +47,7 @@ if(MANIFOLD_CROSS_SECTION)
 endif()
 
 find_package(glm QUIET)
-if(NOT glm_FOUND)
+if(NOT glm_FOUND AND FALSE)
     message(STATUS "glm not found, downloading from source")
     set(GLM_BUILD_INSTALL "ON" CACHE STRING "")
     FetchContent_Declare(glm
